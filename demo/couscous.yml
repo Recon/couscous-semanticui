@@ -1,0 +1,25 @@
+template:
+  directory: ../template
+title: Example.com
+subTitle: Documentation
+baseUrl: /
+menu:
+  sections:
+    first_section:
+      name: <i class='fa fa-book'></i> &nbsp; First Section
+      items:
+        example_1:
+          text: Example 1
+          relativeUrl: index.html
+        example_2:
+          text: Example 2
+          relativeUrl: index.html
+    Second_section:
+      name: <i class='fa fa-database'></i> &nbsp; Second Section
+      items:
+        example_3:
+          text: Example 3
+          relativeUrl: index.html
+        example_4:
+          text: Example 4
+          relativeUrl: index.html

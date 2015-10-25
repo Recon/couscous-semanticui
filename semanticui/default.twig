@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}  {% if subTitle %} - {{ subTitle }}{% endif %}</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ baseUrl }}/css/semantic.min.css" type="text/css"/>
+        <link rel="stylesheet" href="{{ baseUrl }}/bower_components/highlightjs/styles/default.css">
+        <link rel="stylesheet" href="{{ baseUrl }}/bower_components/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="{{ baseUrl }}/css/style.css" type="text/css"/>
+    </head>
+    <body class="wy-body-for-nav">
+        <div class="template">
+            <nav class="ui vertical inverted sticky menu top" role="navigation" aria-label="main navigation">
+                {% if menu is defined %}
+
+                    <div class="item ui logo icon image">
+                        <a href="{{ baseUrl }}/" class="title"><i class="fa fa-home"></i> {{ title|default('The title') }}</a>
+                        {% if subTitle %}
+                            <div class="header subtitle">{{ subTitle }}</div>
+                        {% endif %}
+                    </div>
+
+                    {% for section in menu.sections %}
+                        <div class="item">
+                            <div class="header">
+                                {{ section.name|raw }}
+                            </div>
+
+                            <div class="menu">
+                                {% for itemId, item in section.items %}
+                                    <a class="item {{ itemId == currentMenu ? 'active' }}" href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.relativeUrl) }}">
+                                        {{ item.text|raw }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </nav>
+
+            <main>
+                <div class="thirteen wide column">
+                    <section class="main">
+
+                        <div role="main" class="document">
+                            {{ content|raw }}
+                        </div>
+
+                        <hr/>
+
+                        <footer>
+                            <small>
+                                This documentation was built using <a href="http://couscous.io/">Couscous</a> using a
+                                theme inspired by <a href="http://semantic-ui.com/">SemanticUI</a>.
+                            </small>
+                        </footer>
+
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <script src="{{ baseUrl }}/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="{{ baseUrl }}/bower_components/highlightjs/highlight.pack.min.js"></script>
+        <script src="{{ baseUrl }}/js/semantic.min.js"></script>
+
+        <script>
+            (function ($) {
+                // Syntax highlighting
+                hljs.initHighlightingOnLoad();
+
+                $('main table').addClass('ui celled table');
+                $('main blockquote').addClass('ui message info');
+            })(jQuery);
+        </script>
+    </body>
+</html>

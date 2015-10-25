@@ -1,0 +1,28 @@
+{
+  "name": "Couscous SemanticUI template",
+  "authors": [
+    "Corneliu Popescu <corneliupr@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "couscous",
+    "semanticui"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "highlightjs": "~8.8.0",
+    "jquery": "1.11.2",
+    "font-awesome": "fontawesome#~4.4.0"
+  }
+}
